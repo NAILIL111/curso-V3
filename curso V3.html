@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Cosmos de Fernando Correa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-cover bg-center min-h-screen" style="background-image: url('http://antwrp.gsfc.nasa.gov/apod/image/0701/oriondeepwide_gendler_f.jpg');">
+  <div class="bg-black bg-opacity-60 min-h-screen p-4">
+    <!-- Portada -->
+    <section class="text-center text-white py-10">
+      <h1 class="text-4xl font-bold">El Cosmos de Fernando Correa</h1>
+      <p class="mt-4 text-lg">EN EL COSMOS DE FERNANDO CORREA ENCUENTRAS LO QUE BUSCAS PARA QUE TE ENCUENTRES A TI MISMO</p>
+    </section>
+
+    <!-- Lista de Cursos -->
+    <section class="py-10">
+      <h2 class="text-2xl text-white font-bold text-center mb-8">Cursos Disponibles</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="bg-white rounded-2xl shadow p-6">
+          <h3 class="text-xl font-bold mb-2">Introducción a la Astronomía</h3>
+          <p class="mb-2">Aprende los conceptos básicos del universo.</p>
+          <p class="text-sm">Modalidad: Presencial / Online</p>
+          <p class="text-sm">Duración: 8 semanas</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow p-6">
+          <h3 class="text-xl font-bold mb-2">Observación de Estrellas y Planetas</h3>
+          <p class="mb-2">Técnicas para observar el cielo nocturno.</p>
+          <p class="text-sm">Modalidad: Presencial / Online</p>
+          <p class="text-sm">Duración: 6 semanas</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow p-6">
+          <h3 class="text-xl font-bold mb-2">Astrofotografía para Principiantes</h3>
+          <p class="mb-2">Captura la belleza del universo con tu cámara.</p>
+          <p class="text-sm">Modalidad: Online</p>
+          <p class="text-sm">Duración: 4 semanas</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow p-6">
+          <h3 class="text-xl font-bold mb-2">Cosmología Moderna</h3>
+          <p class="mb-2">Explora teorías sobre el origen y evolución del universo.</p>
+          <p class="text-sm">Modalidad: Online</p>
+          <p class="text-sm">Duración: 10 semanas</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow p-6">
+          <h3 class="text-xl font-bold mb-2">Física de Agujeros Negros</h3>
+          <p class="mb-2">Adéntrate en los objetos más misteriosos del cosmos.</p>
+          <p class="text-sm">Modalidad: Presencial</p>
+          <p class="text-sm">Duración: 12 semanas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de Inscripción -->
+    <section class="py-10">
+      <h2 class="text-2xl text-white font-bold text-center mb-8">Formulario de Inscripción</h2>
+      <form id="inscripcionForm" class="max-w-2xl mx-auto bg-white rounded-2xl p-6 shadow">
+        <div class="mb-4">
+          <label class="block mb-1 font-bold">Nombre completo</label>
+          <input type="text" name="nombre" class="w-full border rounded p-2" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-1 font-bold">Edad</label>
+          <input type="number" name="edad" class="w-full border rounded p-2" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-1 font-bold">Correo electrónico</label>
+          <input type="email" name="email" class="w-full border rounded p-2" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-1 font-bold">Número de teléfono</label>
+          <input type="text" name="telefono" class="w-full border rounded p-2" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-1 font-bold">Curso seleccionado</label>
+          <select name="curso" class="w-full border rounded p-2" required>
+            <option value="Introducción a la Astronomía">Introducción a la Astronomía</option>
+            <option value="Observación de Estrellas y Planetas">Observación de Estrellas y Planetas</option>
+            <option value="Astrofotografía para Principiantes">Astrofotografía para Principiantes</option>
+            <option value="Cosmología Moderna">Cosmología Moderna</option>
+            <option value="Física de Agujeros Negros">Física de Agujeros Negros</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-1 font-bold">Modalidad</label>
+          <div class="flex gap-4">
+            <label><input type="radio" name="modalidad" value="Presencial" required> Presencial</label>
+            <label><input type="radio" name="modalidad" value="Online" required> Online</label>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-1 font-bold">Comentarios adicionales</label>
+          <textarea name="comentarios" class="w-full border rounded p-2"></textarea>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">Inscribirme</button>
+      </form>
+
+      <div id="mensajeExito" class="hidden mt-6 max-w-md mx-auto bg-green-500 text-white text-center p-4 rounded-2xl shadow">
+        ¡Te has inscrito exitosamente! Te contactaremos pronto.
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const form = document.getElementById('inscripcionForm');
+    const mensajeExito = document.getElementById('mensajeExito');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        await fetch('https://script.google.com/macros/s/AKfycbwqkIOnrvtAlrmEtrGKkGku2HvRWF5fkBIkEIxtMuOcVLEMJiTs28IfXWPCAhge6m1Kow/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          body: new URLSearchParams(data)
+        });
+
+        mensajeExito.classList.remove('hidden');
+        form.reset();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        setTimeout(() => {
+          mensajeExito.classList.add('hidden');
+        }, 5000);
+      } catch (error) {
+        alert('Error al enviar tu inscripción. Intenta nuevamente.');
+      }
+    });
+  </script>
+</body>
+</html>
